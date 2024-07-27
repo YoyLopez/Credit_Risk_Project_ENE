@@ -231,11 +231,11 @@ import xgboost as xgb
 from sklearn.metrics import roc_curve, auc
 import matplotlib.pyplot as plt
 
-# Asegúrate de que 'outcome' es el nombre correcto de la columna objetivo
+
 X = credito_df.drop('outcome', axis=1)
 y = credito_df['outcome']
 
-# Divide tus datos en conjuntos de entrenamiento y prueba
+
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=250)
 
 scaler = MinMaxScaler()
@@ -266,7 +266,7 @@ for model_name, model in models.items():
     roc_auc = auc(fpr, tpr)
     plt.plot(fpr, tpr, label=f'{model_name} (AUC = {roc_auc:.2f})')
 
-# Curva ROC de referencia (línea diagonal)
+# Curva ROC de referencia 
 plt.plot([0, 1], [0, 1], color='gray', linestyle='--')
 
 # Configuración del gráfico
